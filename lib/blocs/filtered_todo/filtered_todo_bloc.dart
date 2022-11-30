@@ -3,14 +3,18 @@ import 'package:equatable/equatable.dart';
 
 import '../../model/todo_model.dart';
 
+part 'filtered_todo_event.dart';
 part 'filtered_todo_state.dart';
 
-class FilteredTodoCubit extends Cubit<FilteredTodoState> {
+class FilteredTodoBloc extends Bloc<FilteredTodoEvent, FilteredTodoState> {
   final List<Todo> initialTodos;
 
-  FilteredTodoCubit({
-    required this.initialTodos,
-  }) : super(FilteredTodoState(filteredTodo: initialTodos));
+  FilteredTodoBloc({required this.initialTodos})
+      : super(FilteredTodoState(filteredTodo: initialTodos)) {
+    on<CalculateFilteredTodoEvent>((event, emit) {
+      emit(state.copyWith(filteredTodo: event.filteredTodo));
+    });
+  }
 
   void setFilteredTodos(Filter filter, List<Todo> todos, String searchTerm) {
     List<Todo> filterTodos;

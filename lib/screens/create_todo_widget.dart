@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_todo_cubit/cubit/cubit.dart';
+import 'package:flutter_todo_cubit/blocs/blocs.dart';
 
 class CreateTodoWidget extends StatefulWidget {
   const CreateTodoWidget({Key? key}) : super(key: key);
@@ -28,7 +28,9 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
       ),
       onSubmitted: (String? todoDesc) {
         if (String != null && todoDesc!.trim().isNotEmpty) {
-          context.read<TodoListCubit>().addTodo(newTodoController.text);
+          context.read<TodoListBloc>().add(
+                AddTodoEvent(todoDesc: newTodoController.text),
+              );
           newTodoController.clear();
         }
       },
