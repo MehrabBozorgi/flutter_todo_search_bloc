@@ -16,13 +16,13 @@ class TodoScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Column(
-              children:   [
-                const TodoHeaderWidget(),
-                const CreateTodoWidget(),
-                const SizedBox(height: 20),
+              children:   const [
+                TodoHeaderWidget(),
+                CreateTodoWidget(),
+                SizedBox(height: 20),
                 SearchAndFilterTodoWidget(),
-                const SizedBox(height: 10),
-                const ShowTodoWidget()
+                SizedBox(height: 10),
+                ShowTodoWidget()
               ],
             ),
           ),

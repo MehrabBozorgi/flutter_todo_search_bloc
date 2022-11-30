@@ -4,11 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/todo_filter/todo_filter_bloc.dart';
 import '../blocs/todo_search/todo_search_bloc.dart';
 import '../model/todo_model.dart';
-import '../utils/debounce.dart';
 
 class SearchAndFilterTodoWidget extends StatelessWidget {
-  SearchAndFilterTodoWidget({Key? key}) : super(key: key);
-  final debounce = Debounce(millisecond: 1000);
+  const SearchAndFilterTodoWidget({Key? key}) : super(key: key);
+  // final debounce = Debounce(millisecond: 1000);
 
   @override
   Widget build(BuildContext context) {

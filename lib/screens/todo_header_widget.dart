@@ -9,7 +9,7 @@ class TodoHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final count = context.watch<ActiveTodoCountBloc>().state.activeTodoCount;
+    // final count = context.watch<ActiveTodoCountBloc>().state.activeTodoCount;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

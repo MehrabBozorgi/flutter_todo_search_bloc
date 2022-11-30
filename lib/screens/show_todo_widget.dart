@@ -98,7 +98,7 @@ class _ShowTodoWidgetState extends State<ShowTodoWidget> {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            bool _error = false;
+                            bool error = false;
                             textEditingController.text = todos[index].desc;
                             return StatefulBuilder(
                               builder: (context, setState) {
@@ -108,7 +108,7 @@ class _ShowTodoWidgetState extends State<ShowTodoWidget> {
                                     controller: textEditingController,
                                     autofocus: true,
                                     decoration: InputDecoration(
-                                        errorText: _error == true
+                                        errorText: error == true
                                             ? 'value can not be empty'
                                             : null),
                                   ),
@@ -120,11 +120,11 @@ class _ShowTodoWidgetState extends State<ShowTodoWidget> {
                                     TextButton(
                                       onPressed: () {
                                         setState(() {
-                                          _error =
+                                          error =
                                               textEditingController.text.isEmpty
                                                   ? true
                                                   : false;
-                                          if (!_error) {
+                                          if (!error) {
                                             context.read<TodoListBloc>().add(
                                                   EditTodoEvent(
                                                     id: todos[index].id!,
